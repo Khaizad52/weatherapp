@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    run-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akilehns/heroku-deploy@3.12.12 ## this is the action
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "agile-basin-77840"
+        heroku_email: "1khairulh@gmail.com"
